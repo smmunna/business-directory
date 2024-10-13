@@ -6,7 +6,7 @@ export default function RootLayout() {
     'space-mono': require('@/assets/fonts/SpaceMono-Regular.ttf')
   })
   return (
-    <Stack screenOptions={{headerShown:false}}>
+    <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="(tabs)" />
     </Stack>
   );
