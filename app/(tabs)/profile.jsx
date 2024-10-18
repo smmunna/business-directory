@@ -1,11 +1,27 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text, FlatList, ScrollView } from 'react-native'
+import React, { useEffect, useState } from 'react'
 
 const Profile = () => {
+  const [name, setName] = useState('')
+  const getdata = async() =>{
+    const url = 'https://jsonplaceholder.typicode.com/posts'
+    const result = await fetch(url)
+    const res =await result.json()
+    setName(res)
+  }
+  useEffect(()=>{
+    getdata()
+  },[])
   return (
-    <View>
+    <ScrollView>
       <Text>Profile</Text>
-    </View>
+      <FlatList data={name} 
+      renderItem={({item}) =><View style={{margin:10}}>
+        <Text>{item.id}</Text>
+        <Text>{item.title}</Text>
+      </View>}
+      />
+    </ScrollView>
   )
 }
 
