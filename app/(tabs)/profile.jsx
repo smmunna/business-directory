@@ -9,6 +9,7 @@ const Profile = () => {
     const res =await result.json()
     setName(res)
   }
+  
   useEffect(()=>{
     getdata()
   },[])
